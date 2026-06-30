@@ -27,6 +27,6 @@ return new class extends Migration
     }
 };
 
-/* niewe commit want git deed raar
+/* niewe commit want git deed raar w
 
 }}
