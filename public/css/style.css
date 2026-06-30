@@ -1,0 +1,100 @@
+/* public/css/style.css */
+
+/* Custom Styles for SkillShare */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+/* Subject cards */
+.card {
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+/* Profile picture */
+.profile-picture {
+    border: 3px solid #0d6efd;
+    border-radius: 50%;
+}
+
+/* Admin panel */
+.admin-panel .card {
+    border-left: 4px solid #ffc107;
+}
+
+/* Messages */
+.message-unread {
+    background-color: #fff3cd;
+}
+
+/* Search bar */
+.search-bar {
+    position: relative;
+}
+
+/* Footer */
+footer {
+    margin-top: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+
+    .card-body {
+        padding: 1rem;
+    }
+}
+
+/* Custom button styles */
+.btn-primary {
+    background-color: #ff6b00;
+    border-color: #ff6b00;
+}
+
+.btn-primary:hover {
+    background-color: #e55a00;
+    border-color: #e55a00;
+}
+
+.btn-outline-primary {
+    color: #ff6b00;
+    border-color: #ff6b00;
+}
+
+.btn-outline-primary:hover {
+    background-color: #ff6b00;
+    border-color: #ff6b00;
+}
+
+.text-primary {
+    color: #ff6b00 !important;
+}
+
+.bg-primary {
+    background-color: #ff6b00 !important;
+}
+
+/* Comment section */
+.comment {
+    border-left: 3px solid #ff6b00;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Badge styles */
+.badge {
+    font-weight: 500;
+}
