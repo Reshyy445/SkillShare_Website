@@ -5,12 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Comment extends Model
+class Bookmark extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'content',
         'user_id',
         'post_id',
     ];
@@ -24,20 +23,4 @@ class Comment extends Model
     {
         return $this->belongsTo(Post::class);
     }
-
-    public function likes()
-    {
-        return $this->morphMany(Like::class, 'likeable');
-    }
-
-    public function isBestAnswer()
-    {
-        return $this->post->best_comment_id === $this->id;
-    }
-
-    public function getLikesCountAttribute()
-    {
-        return $this->likes()->count();
-    }
-
 }

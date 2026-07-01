@@ -31,4 +31,40 @@ class Post extends Model
     {
         return $this->hasMany(Comment::class);
     }
+
+    public function likes()
+    {
+        return $this->morphMany(Like::class, 'likeable');
+    }
+
+    public function bookmarks()
+    {
+        return $this->hasMany(Bookmark::class);
+    }
+
+    public function bestComment()
+    {
+        return $this->belongsTo(Comment::class, 'best_comment_id');
+    }
+
+    public function getLikesCountAttribute()
+    {
+        return $this->likes()->count();
+    }
+
+    public function getIsBookmarkedAttribute()
+    {
+        if (auth()->check()) {
+            return $this->bookmarks()->where('user_id', auth()->id())->exists();
+        }
+        return false;
+    }
+
+    public function getIsLikedAttribute()
+    {
+        if (auth()->check()) {
+            return $this->likes()->where('user_id', auth()->id())->exists();
+        }
+        return false;
+    }
 }

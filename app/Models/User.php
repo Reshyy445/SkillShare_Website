@@ -72,4 +72,37 @@ class User extends Authenticatable
     {
         return $this->role === 'user';
     }
+// new relations
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
+
+    public function bookmarks()
+    {
+        return $this->hasMany(Bookmark::class);
+    }
+
+    public function achievements()
+    {
+        return $this->belongsToMany(Achievement::class, 'user_achievements')->withTimestamps();
+    }
+
+    public function getAchievementPointsAttribute()
+    {
+        return $this->achievements->sum('points');
+    }
+
+    public function getLikesReceivedAttribute()
+    {
+        $postLikes = $this->posts->sum(function($post) {
+            return $post->likes()->count();
+        });
+
+        $commentLikes = $this->comments->sum(function($comment) {
+            return $comment->likes()->count();
+        });
+
+        return $postLikes + $commentLikes;
+    }
 }
