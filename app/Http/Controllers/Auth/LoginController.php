@@ -1,10 +1,12 @@
 <?php
+// app/Http/Controllers/Auth/LoginController.php
 
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class LoginController extends Controller
 {
@@ -22,6 +24,12 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
+
+            // Update last_login_at
+            $user = Auth::user();
+            $user->last_login_at = Carbon::now();
+            $user->save();
+
             return redirect()->intended('/dashboard');
         }
 

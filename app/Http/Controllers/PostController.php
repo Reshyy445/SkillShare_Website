@@ -61,4 +61,20 @@ class PostController extends Controller
         $post->delete();
         return redirect()->route('subjects.show', $subject)->with('success', 'Bericht succesvol verwijderd!');
     }
+
+    public function show(Post $post)
+    {
+        $post->load(['user', 'subject', 'comments.user', 'likes']);
+
+        // Check of de gebruiker deze post heeft geliked
+        $post->is_liked = false;
+        $post->is_bookmarked = false;
+
+        if (auth()->check()) {
+            $post->is_liked = $post->likes()->where('user_id', auth()->id())->exists();
+            $post->is_bookmarked = $post->bookmarks()->where('user_id', auth()->id())->exists();
+        }
+
+        return view('posts.show', compact('post'));
+    }
 }
