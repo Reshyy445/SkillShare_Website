@@ -98,3 +98,142 @@ footer {
 .badge {
     font-weight: 500;
 }
+
+/* public/css/style.css - Aanvullingen */
+
+/* Kleuren */
+:root {
+    --orange: #ff6b00;
+    --orange-dark: #e55a00;
+    --orange-light: #fff4eb;
+}
+
+.bg-orange {
+    background: linear-gradient(135deg, #ff6b00 0%, #e55a00 100%);
+}
+
+.text-orange {
+    color: #ff6b00;
+}
+
+.btn-outline-orange {
+    color: #ff6b00;
+    border-color: #ff6b00;
+}
+
+.btn-outline-orange:hover {
+    background-color: #ff6b00;
+    color: white;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, #ff6b00 0%, #e55a00 100%);
+    padding: 80px 0;
+    margin-top: -1px;
+}
+
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Stat Cards */
+.stat-card {
+    padding: 30px 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Breadcrumb Navigation */
+.page-header {
+    background: white;
+    padding: 20px 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+/* Cards met bredere inhoud */
+.container-wide {
+    max-width: 1400px;
+}
+
+/* Footer */
+.footer {
+    background: #1a1a1a;
+    color: #8a8a8a;
+    padding: 60px 0 30px;
+}
+
+.footer a {
+    color: #8a8a8a;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: white;
+}
+
+.footer h5 {
+    color: white;
+    font-weight: bold;
+}
+
+.footer-bottom {
+    border-top: 1px solid #333;
+    padding-top: 20px;
+    margin-top: 30px;
+}
+
+/* Post Detail Page */
+.post-detail {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.post-meta {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.vote-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.vote-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #6c757d;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.vote-button:hover {
+    color: #ff6b00;
+}
+
+.vote-button.voted {
+    color: #ff6b00;
+}
+
+.vote-count {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
